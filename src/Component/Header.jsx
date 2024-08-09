@@ -4,8 +4,8 @@ import { NavLink } from "react-router-dom";
 function Header() {
   return (
     <header className="bg-white shadow-xl">
-      <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between">
+      <div className="max-w-screen-xl px-4 mx-auto sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
           <div className="md:flex md:items-center md:gap-12">
             <NavLink className="block text-teal-600" to="/">
               <span className="sr-only">Home</span>
@@ -54,7 +54,7 @@ function Header() {
             <div className="sm:flex sm:gap-4">
               <NavLink
                 className="rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow"
-                to="/"
+                to="/login"
               >
                 Login
               </NavLink>
@@ -70,10 +70,10 @@ function Header() {
             </div>
 
             <div className="block md:hidden">
-              <button className="rounded bg-gray-100 p-2 text-gray-600 transition hover:text-gray-600/75">
+              <button className="p-2 text-gray-600 transition bg-gray-100 rounded hover:text-gray-600/75">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5"
+                  className="w-5 h-5"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"

@@ -6,8 +6,8 @@ import { FaRegCircleUser } from "react-icons/fa6";
 function Navbar() {
   return (
     <header className="bg-white shadow-xl">
-      <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between">
+      <div className="max-w-screen-xl px-4 mx-auto sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
           <div className="flex items-center gap-4 lg:gap-12">
             <NavLink className="block text-teal-600" to="/">
               <span className="sr-only">Home</span>
@@ -24,13 +24,13 @@ function Navbar() {
               </svg>
             </NavLink>
             </div>
-            <div className="hidden md:flex items-center space-x-3 ">
+            <div className="items-center hidden space-x-3 md:flex ">
               <input
                 type="text"
-                className="border border-gray-300 rounded-md px-3 py-2 "
+                className="px-3 py-2 border border-gray-300 rounded-md "
                 placeholder="Search"
               />
-              <button className="bg-teal-600 text-white px-4 py-2 rounded-md flex items-center gap-2">
+              <button className="flex items-center gap-2 px-4 py-2 text-white bg-teal-600 rounded-md">
                 <FaSearch />
                 <span className="hidden md:inline">Search</span>
               </button>
@@ -39,19 +39,25 @@ function Navbar() {
           <div className="flex items-center gap-4">
             <NavLink
               className="text-2xl rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow"
-              to="/login"
+              to=""
             >
               <FaRegCircleUser />
             </NavLink>
             <NavLink
-              className="text-2xl rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600"
-              to="/register"
+              className="relative text-2xl rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600"
+              to=""
             >
               <FaShoppingCart/>
-              <div>
-                <p className="p text-sm">0</p>
+              <div className="absolute top-[-13px] right-[-17px] flex items-center justify-center w-5 h-5 bg-red-600 text-white text-xs rounded-full -translate-x-1/2 translate-y-1/2">
+                <p className="text-sm">0</p>
               </div>
             </NavLink>
+            <NavLink
+                className="rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow"
+                to="/login"
+              >
+                Login
+              </NavLink>
           </div>
 
         </div>
