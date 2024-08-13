@@ -12,7 +12,6 @@ import AdminPanel from "../pages/AdminPanel";
 import AllUsers from "../pages/AllUsers";
 import AllProducts from "../pages/AllProducts";
 
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -20,15 +19,15 @@ const router = createBrowserRouter([
     children: [
       {
         path: "",
-        element: <Homed/>,
+        element: <Homed />,
       },
       {
         path: "login",
-        element: <Login/>,
+        element: <Login />,
       },
       {
         path: "forgot-password",
-        element: <ForgotPassowrd/>,
+        element: <ForgotPassowrd />,
       },
       {
         path: "sign-up",
@@ -36,15 +35,15 @@ const router = createBrowserRouter([
       },
       {
         path: "product-category",
-        element: <CategoryProduct/>,
+        element: <CategoryProduct />,
       },
       {
         path: "product/:id",
-        element: <ProductDetails/>,
+        element: <ProductDetails />,
       },
       {
         path: "cart",
-        element: <Cart/>,
+        element: <Cart />,
       },
       {
         path: "search",
@@ -56,11 +55,11 @@ const router = createBrowserRouter([
         children: [
           {
             path: "all-users",
-            element: <AllUsers/>,
+            element: <AllUsers />,
           },
           {
             path: "all-products",
-            element: <AllProducts/>,
+            element: <AllProducts />,
           },
         ],
       },
