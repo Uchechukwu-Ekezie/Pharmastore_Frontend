@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import App from "../App";
+import RootLayout from "../Layout/RootLayout";
 import Homed from "../pages/Home";
 import Login from "../pages/Login";
 import ForgotPassowrd from "../pages/ForgotPassowrd";
@@ -13,10 +13,10 @@ import AllUsers from "../pages/AllUsers";
 import AllProducts from "../pages/AllProducts";
 
 
-const Router = createBrowserRouter([
+const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <RootLayout />,
     children: [
       {
         path: "",
@@ -36,7 +36,7 @@ const Router = createBrowserRouter([
       },
       {
         path: "product-category",
-        element: <CategoryProduct />,
+        element: <CategoryProduct/>,
       },
       {
         path: "product/:id",
@@ -44,7 +44,7 @@ const Router = createBrowserRouter([
       },
       {
         path: "cart",
-        element: <Cart />,
+        element: <Cart/>,
       },
       {
         path: "search",
@@ -52,7 +52,7 @@ const Router = createBrowserRouter([
       },
       {
         path: "admin-panel",
-        element: <AdminPanel/>,
+        element: <AdminPanel />,
         children: [
           {
             path: "all-users",
@@ -68,4 +68,4 @@ const Router = createBrowserRouter([
   },
 ]);
 
-export default Router;
+export default router;
