@@ -126,8 +126,10 @@ function Headers() {
                 className="relative text-2xl rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600"
                 to="/cart"
               >
-                <span><FaShoppingCart /></span>
-                
+                <span>
+                  <FaShoppingCart />
+                </span>
+
                 <div className="absolute top-[-13px] right-[-17px] flex items-center justify-center w-5 h-5 bg-red-600 text-white text-xs rounded-full -translate-x-1/2 translate-y-1/2">
                   <p className="text-sm">{context?.cartProductCount}</p>
                 </div>
@@ -151,8 +153,8 @@ function Headers() {
                 </NavLink>
               )}
             </div>
+          </div>
         </div>
-      </div>
       </div>
     </header>
   );
