@@ -1,12 +1,60 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
+import { FaSearch, FaShoppingCart } from "react-icons/fa";
+import { FaRegCircleUser } from "react-icons/fa6";
+import { useDispatch, useSelector } from "react-redux";
+import Context from "../context";
+import { toast } from "react-toastify";
+import SummaryApi from "../common";
+import { setUserDetails } from "../store/userSlice";
+import ROLE from "../common/role";
 
-function Header() {
+function Headers() {
+  const user = useSelector((state) => state?.user?.user);
+  const dispatch = useDispatch();
+  const [menuDisplay, setMenuDisplay] = useState(false);
+  const context = useContext(Context);
+  const navigate = useNavigate();
+  const searchInput = useLocation();
+  const URLSearch = new URLSearchParams(searchInput?.search);
+  const searchQuery = URLSearch.getAll("q");
+  const [search, setSearch] = useState(searchQuery);
+
+  const handleLogout = async () => {
+    const fetchData = await fetch(SummaryApi.logout_user.url, {
+      method: SummaryApi.logout_user.method,
+      credentials: "include",
+    });
+
+    const data = await fetchData.json();
+
+    if (data.success) {
+      toast.success(data.message);
+      dispatch(setUserDetails(null));
+      navigate("/");
+    }
+
+    if (data.error) {
+      toast.error(data.message);
+    }
+  };
+
+  const handleSearch = (e) => {
+    const { value } = e.target;
+    setSearch(value);
+
+    if (value) {
+      navigate(`/search?q=${value}`);
+    } else {
+      navigate("/search");
+    }
+  };
+
   return (
     <header className="bg-white shadow-xl">
       <div className="max-w-screen-xl px-4 mx-auto sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <div className="md:flex md:items-center md:gap-12">
+          <div className="flex items-center gap-4 lg:gap-12">
             <NavLink className="block text-teal-600" to="/">
               <span className="sr-only">Home</span>
               <svg
@@ -23,75 +71,91 @@ function Header() {
             </NavLink>
           </div>
 
-          <div className="hidden md:block">
-            <nav aria-label="Global">
-              <ul className="flex items-center gap-6 text-sm">
-                <li>
-                  <NavLink
-                    className="text-gray-500 transition hover:text-gray-500/75"
-                    to="/"
-                  >
-                    {" "}
-                    About{" "}
-                  </NavLink>
-                </li>
-
-                <li>
-                  <NavLink
-                    className="text-gray-500 transition hover:text-gray-500/75"
-                    to="/store"
-                  >
-                    {" "}
-                    Store{" "}
-                  </NavLink>
-                </li>
-
-              </ul>
-            </nav>
+          <div className="items-center hidden space-x-3 md:flex ">
+            <input
+              type="text"
+              className="px-3 py-2 border border-gray-300 rounded-md "
+              placeholder="Search"
+              value={search}
+              onChange={handleSearch}
+            />
+            <button className="flex items-center gap-2 px-4 py-2 text-white bg-teal-600 rounded-md">
+              <FaSearch />
+              <span className="hidden md:inline">Search</span>
+            </button>
           </div>
 
           <div className="flex items-center gap-4">
-            <div className="sm:flex sm:gap-4">
+            <div className="relative flex justify-center">
+              {user?._id && (
+                <div
+                  className="relative flex justify-center text-3xl text-teal-600 cursor-pointer"
+                  onClick={() => setMenuDisplay((preve) => !preve)}
+                >
+                  {user?.profilePic ? (
+                    <img
+                      src={user?.profilePic}
+                      className="w-10 h-10 rounded-full"
+                      alt={user?.name}
+                    />
+                  ) : (
+                    <FaRegCircleUser />
+                  )}
+                </div>
+              )}
+
+              {menuDisplay && (
+                <div className="absolute bottom-0 p-2 bg-white rounded shadow-lg top-11 h-fit">
+                  <nav>
+                    {user?.role === ROLE.ADMIN && (
+                      <Link
+                        to={"/admin-panel/all-products"}
+                        className="hidden p-2 whitespace-nowrap md:block hover:bg-slate-100"
+                        onClick={() => setMenuDisplay((preve) => !preve)}
+                      >
+                        Admin Panel
+                      </Link>
+                    )}
+                  </nav>
+                </div>
+              )}
+            </div>
+
+            {user?._id && (
               <NavLink
-                className="rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow"
-                to="/login"
+                className="relative text-2xl rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600"
+                to="/cart"
               >
-                Login
+                <span><FaShoppingCart /></span>
+                
+                <div className="absolute top-[-13px] right-[-17px] flex items-center justify-center w-5 h-5 bg-red-600 text-white text-xs rounded-full -translate-x-1/2 translate-y-1/2">
+                  <p className="text-sm">{context?.cartProductCount}</p>
+                </div>
               </NavLink>
+            )}
 
-              <div className="hidden sm:flex">
+            <div>
+              {user?._id ? (
+                <button
+                  className="rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow"
+                  onClick={handleLogout}
+                >
+                  Logout
+                </button>
+              ) : (
                 <NavLink
-                  className="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600"
-                  to="/"
+                  className="rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow"
+                  to="/login"
                 >
-                  Register
+                  Login
                 </NavLink>
-              </div>
+              )}
             </div>
-
-            <div className="block md:hidden">
-              <button className="p-2 text-gray-600 transition bg-gray-100 rounded hover:text-gray-600/75">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="w-5 h-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                </svg>
-              </button>
-            </div>
-          </div>
         </div>
+      </div>
       </div>
     </header>
   );
 }
 
-export default Header;
+export default Headers;

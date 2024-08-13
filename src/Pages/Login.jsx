@@ -1,54 +1,55 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
-import SummaryApi from '../common';
+import SummaryApi from "../common";
 import { toast } from "react-toastify";
+import Context from "../context";
 
 function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const [data, setData] = useState({
     email: "",
-    password: ""
+    password: "",
   });
- 
+
   const navigate = useNavigate();
+  const { fetchUserDetails, fetchUserAddToCart } = useContext(Context);
 
   const handleOnChange = (e) => {
     const { name, value } = e.target;
 
     setData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
-  const handleSubmit = async(e) =>{
-    e.preventDefault()
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-    const dataResponse = await fetch(SummaryApi.signIn.url,{
-        method : SummaryApi.signIn.method,
-        credentials : 'include',
-        headers : {
-            "content-type" : "application/json"
-        },
-        body : JSON.stringify(data)
-    })
+    const dataResponse = await fetch(SummaryApi.signIn.url, {
+      method: SummaryApi.signIn.method,
+      credentials: "include",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
 
-    const dataApi = await dataResponse.json()
+    const dataApi = await dataResponse.json();
 
-    if(dataApi.success){
-        toast.success(dataApi.message)
-        navigate('/')
-       
+    if (dataApi.success) {
+      toast.success(dataApi.message);
+      navigate("/");
+      fetchUserDetails();
+      fetchUserAddToCart();
     }
 
-    if(dataApi.error){
-        toast.error(dataApi.message)
+    if (dataApi.error) {
+      toast.error(dataApi.message);
     }
-
-}
-console.log("data login",data)
-    
+  };
+  console.log("data login", data);
 
   return (
     <section className="relative flex flex-wrap lg:h-screen lg:items-center">
@@ -60,11 +61,15 @@ console.log("data login",data)
           </p>
         </div>
 
-        <form onSubmit={handleSubmit} className="max-w-md mx-auto mt-8 mb-0 space-y-4">
-        
-
+        <form
+          onSubmit={handleSubmit}
+          className="max-w-md mx-auto mt-8 mb-0 space-y-4"
+        >
           <div>
-            <label htmlFor="email" className="block mb-2 text-sm font-medium text-left text-gray-700">
+            <label
+              htmlFor="email"
+              className="block mb-2 text-sm font-medium text-left text-gray-700"
+            >
               Email
             </label>
             <div className="relative">
@@ -81,7 +86,10 @@ console.log("data login",data)
           </div>
 
           <div>
-            <label htmlFor="password" className="block mb-2 text-sm font-medium text-left text-gray-700">
+            <label
+              htmlFor="password"
+              className="block mb-2 text-sm font-medium text-left text-gray-700"
+            >
               Password
             </label>
             <div className="relative">
@@ -104,15 +112,21 @@ console.log("data login",data)
           </div>
 
           <div>
-            <Link className="text-sm text-gray-500 hover:underline hover:text-red-600" to="/forgotpassword">
+            <Link
+              className="text-sm text-gray-500 hover:underline hover:text-red-600"
+              to="/forgotpassword"
+            >
               Forgot Password?
             </Link>
           </div>
 
           <div className="flex items-center justify-between">
             <p className="text-sm text-gray-500">
-              No account? 
-              <Link className="text-red-500 hover:underline hover:text-red-700" to="/signup">
+              No account?
+              <Link
+                className="text-red-500 hover:underline hover:text-red-700"
+                to="/sign-up"
+              >
                 Sign up
               </Link>
             </p>

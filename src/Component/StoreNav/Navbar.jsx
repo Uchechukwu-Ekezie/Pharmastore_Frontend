@@ -2,8 +2,10 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { FaSearch, FaShoppingCart } from "react-icons/fa";
 import { FaRegCircleUser } from "react-icons/fa6";
+import { useSelector } from "react-redux";
 
 function Navbar() {
+  const user = useSelector(state => state?.user?.user)
   return (
     <header className="bg-white shadow-xl">
       <div className="max-w-screen-xl px-4 mx-auto sm:px-6 lg:px-8">
