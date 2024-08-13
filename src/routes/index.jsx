@@ -1,18 +1,17 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
-
-
-import AdminPanel from "../pages/AdminPanel";
-import AllUsers from "../pages/AllUsers";
-import AllProducts from "../pages/AllProducts";
+import Home from "../pages/Home";
+import Login from "../pages/Login";
+import ForgotPassowrd from "../pages/ForgotPassowrd";
+import Signup from "../pages/Signup";
 import CategoryProduct from "../pages/CategoryProduct";
 import ProductDetails from "../pages/ProductDetails";
 import Cart from "../pages/Cart";
 import SearchProduct from "../pages/SearchProduct";
-import Login from "../pages/Login";
-import Signup from "../pages/Signup";
-import ForgotPassowrd from "../pages/ForgotPassowrd";
-import Home from "../pages/Home";
+import AdminPanel from "../pages/AdminPanel";
+import AllUsers from "../pages/AllUsers";
+import AllProducts from "../pages/AllProducts";
+
 
 const router = createBrowserRouter([
   {
@@ -29,7 +28,7 @@ const router = createBrowserRouter([
       },
       {
         path: "forgot-password",
-        element: <ForgotPassowrd />,
+        element: <ForgotPassowrd/>,
       },
       {
         path: "sign-up",
@@ -41,7 +40,7 @@ const router = createBrowserRouter([
       },
       {
         path: "product/:id",
-        element: <ProductDetails />,
+        element: <ProductDetails/>,
       },
       {
         path: "cart",
@@ -53,15 +52,15 @@ const router = createBrowserRouter([
       },
       {
         path: "admin-panel",
-        element: <AdminPanel />,
+        element: <AdminPanel/>,
         children: [
           {
             path: "all-users",
-            element: <AllUsers />,
+            element: <AllUsers/>,
           },
           {
             path: "all-products",
-            element: <AllProducts />,
+            element: <AllProducts/>,
           },
         ],
       },
