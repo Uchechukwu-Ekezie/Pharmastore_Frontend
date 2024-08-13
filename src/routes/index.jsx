@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import App from "../App";
+
 import Home from "../pages/Home";
 import Login from "../pages/Login";
 import ForgotPassowrd from "../pages/ForgotPassowrd";
@@ -11,7 +11,7 @@ import SearchProduct from "../pages/SearchProduct";
 import AdminPanel from "../pages/AdminPanel";
 import AllUsers from "../pages/AllUsers";
 import AllProducts from "../pages/AllProducts";
-
+import App from "../App";
 
 const router = createBrowserRouter([
   {
@@ -20,7 +20,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "",
-        element: <Home/>,
+        element: <Home />,
       },
       {
         path: "login",
@@ -28,7 +28,7 @@ const router = createBrowserRouter([
       },
       {
         path: "forgot-password",
-        element: <ForgotPassowrd/>,
+        element: <ForgotPassowrd />,
       },
       {
         path: "sign-up",
@@ -40,7 +40,7 @@ const router = createBrowserRouter([
       },
       {
         path: "product/:id",
-        element: <ProductDetails/>,
+        element: <ProductDetails />,
       },
       {
         path: "cart",
@@ -52,15 +52,15 @@ const router = createBrowserRouter([
       },
       {
         path: "admin-panel",
-        element: <AdminPanel/>,
+        element: <AdminPanel />,
         children: [
           {
             path: "all-users",
-            element: <AllUsers/>,
+            element: <AllUsers />,
           },
           {
             path: "all-products",
-            element: <AllProducts/>,
+            element: <AllProducts />,
           },
         ],
       },

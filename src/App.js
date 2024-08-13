@@ -12,27 +12,24 @@ import { setUserDetails } from "./store/userSlice";
 
 import Headers from "./Component/Header";
 
-function RootLayout() {
+function App() {
   const location = useLocation();
   const dispatch = useDispatch();
   const [cartProductCount, setCartProductCount] = useState(0);
 
-  const fetchUserDetails = useCallback (async () => {
-      const dataResponse = await fetch(SummaryApi.current_user.url, {
-        method: SummaryApi.current_user.method,
-        credentials: "include",
-      });
+  const fetchUserDetails = useCallback(async () => {
+    const dataResponse = await fetch(SummaryApi.current_user.url, {
+      method: SummaryApi.current_user.method,
+      credentials: "include",
+    });
 
-      const dataApi = await dataResponse.json();
+    const dataApi = await dataResponse.json();
 
-      if (dataApi.success) {
-        dispatch(setUserDetails(dataApi.data));
-      } 
-      console.log("data-user", dataResponse)
-  }
-  , [dispatch]);
-    
-    
+    if (dataApi.success) {
+      dispatch(setUserDetails(dataApi.data));
+    }
+    console.log("data-user", dataResponse);
+  }, [dispatch]);
 
   const fetchUserAddToCart = useCallback(async () => {
     try {
@@ -63,19 +60,19 @@ function RootLayout() {
       <Context.Provider
         value={{
           fetchUserDetails,
-          cartProductCount, 
+          cartProductCount,
           fetchUserAddToCart,
         }}
       >
         <ToastContainer position="top-center" />
-        <Headers/>
-        <main className='min-h-[calc(100vh-120px)] pt-16'>
-          <Outlet/>
+        <Headers />
+        <main className="min-h-[calc(100vh-120px)] pt-16">
+          <Outlet />
         </main>
-        <Footer/>
+        <Footer />
       </Context.Provider>
     </div>
   );
 }
 
-export default RootLayout;
+export default App;
