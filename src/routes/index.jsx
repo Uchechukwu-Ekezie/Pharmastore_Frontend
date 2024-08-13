@@ -1,6 +1,4 @@
 import { createBrowserRouter } from "react-router-dom";
-
-import Home from "../pages/Home";
 import Login from "../pages/Login";
 import ForgotPassowrd from "../pages/ForgotPassowrd";
 import Signup from "../pages/Signup";
@@ -12,15 +10,16 @@ import AdminPanel from "../pages/AdminPanel";
 import AllUsers from "../pages/AllUsers";
 import AllProducts from "../pages/AllProducts";
 import App from "../App";
+import Homed from "../pages/Home";
 
-const router = createBrowserRouter([
+const Router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
     children: [
       {
         path: "",
-        element: <Home />,
+        element: <Homed/>,
       },
       {
         path: "login",
@@ -68,4 +67,4 @@ const router = createBrowserRouter([
   },
 ]);
 
-export default router;
+export default Router;

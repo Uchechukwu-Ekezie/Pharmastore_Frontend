@@ -4,7 +4,7 @@ import BannerProduct from "../Component/BannerProduct";
 import HorizontalCardProduct from "../Component/HorizontalCardProduct";
 import VerticalCardProduct from "../Component/VerticalCardProduct";
 
-function Home() {
+function Homed() {
   return (
     <div>
       <CategoryList />
@@ -37,4 +37,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Homed;
