@@ -123,7 +123,7 @@ function Headers() {
 
             {user?._id && (
               <NavLink
-                className="relative text-2xl rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600"
+                className="relative text-2xl rounded-md bg-gray-100 px-5 py-2.5 font-medium text-teal-600"
                 to="/cart"
               >
                 <span>
