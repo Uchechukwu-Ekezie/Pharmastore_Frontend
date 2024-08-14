@@ -25,7 +25,7 @@ const VerticalCard = ({loading,data = []}) => {
                          <div className='bg-slate-200 h-48 p-4 min-w-[280px] md:min-w-[145px] flex justify-center items-center animate-pulse'>
                          </div>
                          <div className='grid gap-3 p-4'>
-                             <h2 className='p-1 py-2 text-base font-medium text-black rounded-full md:text-lg text-ellipsis line-clamp-1 animate-pulse bg-slate-200'></h2>
+                             <h2 className='p-1 py-2 text-base font-medium text-black rounded-full md:text-lg text-ellipsis line-clamp-1 animate-pulse bg-slate-200'>me</h2>
                              <p className='p-1 py-2 capitalize rounded-full text-slate-500 animate-pulse bg-slate-200'></p>
                              <div className='flex gap-3'>
                                  <p className='w-full p-1 py-2 font-medium text-red-600 rounded-full animate-pulse bg-slate-200'></p>
@@ -41,7 +41,7 @@ const VerticalCard = ({loading,data = []}) => {
                  return(
                      <Link to={"/product/"+product?._id} className='w-full min-w-[280px]  md:min-w-[300px] max-w-[280px] md:max-w-[300px]  bg-white rounded-sm shadow ' onClick={scrollTop}>
                          <div className='bg-slate-200 h-48 p-4 min-w-[280px] md:min-w-[145px] flex justify-center items-center'>
-                             <img src={product?.productImage[0]} className='object-scale-down h-full transition-all hover:scale-110 mix-blend-multiply'/>
+                             <img src={product?.productImage[0]} className='object-scale-down h-full transition-all hover:scale-110 mix-blend-multiply' alt='pcm'/>
                          </div>
                          <div className='grid gap-3 p-4'>
                              <h2 className='text-base font-medium text-black md:text-lg text-ellipsis line-clamp-1'>{product?.productName}</h2>
