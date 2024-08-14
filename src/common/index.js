@@ -1,4 +1,4 @@
-const backendDomin = "https://pharmastore-backend.onrender.com/"
+const backendDomin = "https://pharmastore-backend.onrender.com"
 
 const SummaryApi = {
     signUP : {
