@@ -1,7 +1,8 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { useLocation } from 'react-router-dom';
-import SummaryApi from '../common';
+
 import VerticalCard from '../Component/VerticalCard';
+import SummaryApi from '../common';
 
 const SearchProduct = () => {
     const query = useLocation().search;

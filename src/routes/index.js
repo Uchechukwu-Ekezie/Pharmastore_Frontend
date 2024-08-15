@@ -1,5 +1,4 @@
 import { createBrowserRouter } from "react-router-dom";
-import RootLayout from "../Layout/RootLayout";
 import Homed from "../pages/Home";
 import Login from "../pages/Login";
 import ForgotPassowrd from "../pages/ForgotPassowrd";
@@ -11,11 +10,12 @@ import SearchProduct from "../pages/SearchProduct";
 import AdminPanel from "../pages/AdminPanel";
 import AllUsers from "../pages/AllUsers";
 import AllProducts from "../pages/AllProducts";
+import App from "../App";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <RootLayout />,
+    element: <App/>,
     children: [
       {
         path: "",
