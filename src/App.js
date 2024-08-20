@@ -15,18 +15,24 @@ function App() {
   const [cartProductCount, setCartProductCount] = useState(0);
 
   const fetchUserDetails = async () => {
-    const dataResponse = await fetch(SummaryApi.current_user.url, {
-      method: SummaryApi.current_user.method,
-      credentials: "include",
-    });
-
-    const dataApi = await dataResponse.json();
-
-    if (dataApi.success) {
-      dispatch(setUserDetails(dataApi.data));
+    try {
+      const dataResponse = await fetch(SummaryApi.current_user.url, {
+        method: SummaryApi.current_user.method,
+        credentials: "include",
+      });
+  
+      const dataApi = await dataResponse.json();
+      console.log("Fetch User Details Response:", dataApi);
+  
+      if (dataApi.success) {
+        dispatch(setUserDetails(dataApi.data));
+      } else {
+        console.error("Failed to fetch user details:", dataApi.message);
+      }
+    } catch (error) {
+      console.error("Error fetching user details:", error);
     }
-    console.log("data-user", dataResponse);
-  }
+  };
 
   const fetchUserAddToCart = useCallback(async () => {
     try {
