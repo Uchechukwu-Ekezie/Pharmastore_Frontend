@@ -65,7 +65,7 @@ const VerticalCardProduct = ({category, heading}) => {
                                     <h2 className='p-1 py-2 text-base font-medium text-black rounded-full md:text-lg text-ellipsis line-clamp-1 animate-pulse bg-slate-200'></h2>
                                     <p className='p-1 py-2 capitalize rounded-full text-slate-500 animate-pulse bg-slate-200'></p>
                                     <div className='flex gap-3'>
-                                        <p className='w-full p-1 py-2 font-medium text-red-600 rounded-full animate-pulse bg-slate-200'></p>
+                                        <p className='w-full p-1 py-2 font-medium text-teal-600 rounded-full animate-pulse bg-slate-200'></p>
                                         <p className='w-full p-1 py-2 line-through rounded-full text-slate-500 animate-pulse bg-slate-200'></p>
                                     </div>
                                     <button className='px-3 py-2 text-sm text-white rounded-full bg-slate-200 animate-pulse'></button>
@@ -84,7 +84,7 @@ const VerticalCardProduct = ({category, heading}) => {
                                     <h2 className='text-base font-medium text-black md:text-lg text-ellipsis line-clamp-1'>{product?.productName}</h2>
                                     <p className='capitalize text-slate-500'>{product?.category}</p>
                                     <div className='flex gap-3'>
-                                        <p className='font-medium text-red-600'>{ displayINRCurrency(product?.sellingPrice) }</p>
+                                        <p className='font-medium text-teal-600'>{ displayINRCurrency(product?.sellingPrice) }</p>
                                         <p className='line-through text-slate-500'>{ displayINRCurrency(product?.price)  }</p>
                                     </div>
                                     <button className='text-sm bg-teal-600 hover:bg-teal-700 text-white px-3 py-0.5 rounded-full' onClick={(e)=>handleAddToCart(e,product?._id)}>Add to Cart</button>

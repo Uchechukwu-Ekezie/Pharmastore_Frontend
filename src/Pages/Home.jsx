@@ -21,19 +21,17 @@ function Homed() {
       />
 
       <VerticalCardProduct category={"Cough & Cold"} heading={"Cough & Cold"} />
-      <VerticalCardProduct category={"Mouse"} heading={"Mouse"} />
-      <VerticalCardProduct category={"televisions"} heading={"Televisions"} />
+      <VerticalCardProduct category={"Vitamins & Supplements"} heading={"Vitamins & Supplements"} />
+      <VerticalCardProduct category={"Chronic Diseases"} heading={"Chronic Diseases"} />
       <VerticalCardProduct
-        category={"camera"}
-        heading={"Camera & Photography"}
+        category={"Family Planning"}
+        heading={"Family Planning"}
       />
-      <VerticalCardProduct category={"earphones"} heading={"Wired Earphones"} />
+      <VerticalCardProduct category={"Mother & Child Care"} heading={"Mother & Child Care"} />
       <VerticalCardProduct
-        category={"speakers"}
-        heading={"Bluetooth Speakers"}
+        category={"Skin Care"}
+        heading={"Skin Care"}
       />
-      <VerticalCardProduct category={"refrigerator"} heading={"Refrigerator"} />
-      <VerticalCardProduct category={"trimmers"} heading={"Trimmers"} />
     </div>
   );
 }

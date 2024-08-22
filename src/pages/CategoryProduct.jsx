@@ -34,10 +34,6 @@ const CategoryProduct = () => {
         }),
       });
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
       const dataResponse = await response.json();
       setData(dataResponse?.data || []);
     } catch (error) {
@@ -99,19 +95,18 @@ const CategoryProduct = () => {
   };
 
   return (
-    <div className='container mx-auto p-4'>
-
+    <div className="container mx-auto p-4">
       {/***desktop version */}
-      <div className='hidden lg:grid grid-cols-[200px,1fr]'>
-              {/***left side */}
-              <div className='bg-white p-2 min-h-[calc(100vh-120px)] overflow-y-scroll'>
-        {/* Sort by */}
-          <div>
-            <h3 className="pb-1 text-base font-medium uppercase border-b text-slate-500 border-slate-300">
+      <div className="grid lg:grid-cols-[200px,1fr]">
+        {/***left side */}
+        <div className="bg-white p-2 min-h-[calc(10vh-120px)] overflow-y-scroll">
+          {/**sort by */}
+          <div className="w-full sm:w-48 lg:w-full">
+            <h3 className="text-base uppercase font-medium text-slate-500 border-b pb-1 border-slate-300">
               Sort by
             </h3>
 
-            <form className="flex flex-col gap-2 py-2 text-sm">
+            <form className="text-sm flex flex-col gap-2 py-2">
               <div className="flex items-center gap-3">
                 <input
                   type="radio"
@@ -136,12 +131,13 @@ const CategoryProduct = () => {
             </form>
           </div>
 
-          <div>
-            <h3 className="pb-1 text-base font-medium uppercase border-b text-slate-500 border-slate-300">
+          {/**filter by */}
+          <div className="">
+            <h3 className="text-base uppercase font-medium text-slate-500 border-b pb-1 border-slate-300">
               Category
             </h3>
 
-            <form className="flex flex-col gap-2 py-2 text-sm">
+            <form className="text-sm flex flex-col gap-2 py-2">
               {productCategory.map((categoryName, index) => (
                 <div className="flex items-center gap-3" key={index}>
                   <input
@@ -159,7 +155,7 @@ const CategoryProduct = () => {
           </div>
         </div>
 
-        {/* Main Content */}
+        {/***right side (product) */}
         <div className="px-4">
           <p className="font-medium text-slate-800 text-lg my-2">
             Search Results: {data.length}
