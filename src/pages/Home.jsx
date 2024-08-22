@@ -12,7 +12,7 @@ function Homed() {
       <BannerProduct />
 
       <HorizontalCardProduct
-        category={"firstaid"}
+        category={"first_aid"}
         heading={"Top's First Aids"}
       />
       <HorizontalCardProduct
@@ -21,15 +21,15 @@ function Homed() {
       />
 
       <VerticalCardProduct category={"Cough & Cold"} heading={"Cough & Cold"} />
-      <VerticalCardProduct category={"Vitamins & Supplements"} heading={"Vitamins & Supplements"} />
-      <VerticalCardProduct category={"Chronic Diseases"} heading={"Chronic Diseases"} />
+      <VerticalCardProduct category={"vitamins_supplements"} heading={"Vitamins & Supplements"} />
+      <VerticalCardProduct category={"personal_care"} heading={"Chronic Diseases"} />
       <VerticalCardProduct
-        category={"Family Planning"}
+        category={"health_wellness"}
         heading={"Family Planning"}
       />
-      <VerticalCardProduct category={"Mother & Child Care"} heading={"Mother & Child Care"} />
+      <VerticalCardProduct category={"baby_child_care"} heading={"Mother & Child Care"} />
       <VerticalCardProduct
-        category={"Skin Care"}
+        category={"skin_care"}
         heading={"Skin Care"}
       />
     </div>
