@@ -99,10 +99,14 @@ const CategoryProduct = () => {
   };
 
   return (
-    <div className="container p-4 mx-auto">
-      <div className="hidden lg:grid grid-cols-[200px,1fr]">
-        <div className="bg-white p-2 min-h-[calc(100vh-120px)] overflow-y-scroll">
-          <div className="">
+    <div className='container mx-auto p-4'>
+
+      {/***desktop version */}
+      <div className='hidden lg:grid grid-cols-[200px,1fr]'>
+              {/***left side */}
+              <div className='bg-white p-2 min-h-[calc(100vh-120px)] overflow-y-scroll'>
+        {/* Sort by */}
+          <div>
             <h3 className="pb-1 text-base font-medium uppercase border-b text-slate-500 border-slate-300">
               Sort by
             </h3>
@@ -132,7 +136,7 @@ const CategoryProduct = () => {
             </form>
           </div>
 
-          <div className="">
+          <div>
             <h3 className="pb-1 text-base font-medium uppercase border-b text-slate-500 border-slate-300">
               Category
             </h3>
@@ -155,8 +159,9 @@ const CategoryProduct = () => {
           </div>
         </div>
 
+        {/* Main Content */}
         <div className="px-4">
-          <p className="my-2 text-lg font-medium text-slate-800">
+          <p className="font-medium text-slate-800 text-lg my-2">
             Search Results: {data.length}
           </p>
 

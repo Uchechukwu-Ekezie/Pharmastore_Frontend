@@ -1,6 +1,5 @@
-// src/App.js
 import React, { useEffect, useState, useCallback } from "react";
-import { Outlet, useLocation } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import Footer from "./Component/Footer";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -14,16 +13,20 @@ function App() {
   const dispatch = useDispatch();
   const [cartProductCount, setCartProductCount] = useState(0);
 
-  const fetchUserDetails = async () => {
+  const fetchUserDetails = useCallback(async () => {
     try {
       const dataResponse = await fetch(SummaryApi.current_user.url, {
         method: SummaryApi.current_user.method,
         credentials: "include",
       });
-  
+
+      if (!dataResponse.ok) {
+        throw new Error(`HTTP error! Status: ${dataResponse.status}`);
+      }
+
       const dataApi = await dataResponse.json();
       console.log("Fetch User Details Response:", dataApi);
-  
+
       if (dataApi.success) {
         dispatch(setUserDetails(dataApi.data));
       } else {
@@ -32,7 +35,7 @@ function App() {
     } catch (error) {
       console.error("Error fetching user details:", error);
     }
-  };
+  }, [dispatch]);
 
   const fetchUserAddToCart = useCallback(async () => {
     try {
@@ -40,6 +43,10 @@ function App() {
         method: SummaryApi.addToCartProductCount.method,
         credentials: "include",
       });
+
+      if (!dataResponse.ok) {
+        throw new Error(`HTTP error! Status: ${dataResponse.status}`);
+      }
 
       const dataApi = await dataResponse.json();
 
@@ -56,7 +63,7 @@ function App() {
   useEffect(() => {
     fetchUserDetails();
     fetchUserAddToCart();
-  }, []);
+  }, [fetchUserDetails, fetchUserAddToCart]);
 
   return (
     <div>
@@ -68,11 +75,11 @@ function App() {
         }}
       >
         <ToastContainer position="top-center" />
-        <Headers/>
+        <Headers />
         <main className="min-h-[calc(100vh-120px)] pt-16">
           <Outlet />
         </main>
-        <Footer/>
+        <Footer />
       </Context.Provider>
     </div>
   );

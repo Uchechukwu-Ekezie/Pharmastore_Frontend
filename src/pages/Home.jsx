@@ -7,6 +7,7 @@ import VerticalCardProduct from "../Component/VerticalCardProduct";
 function Homed() {
   return (
     <div>
+      
       <CategoryList />
       <BannerProduct />
 
@@ -15,11 +16,11 @@ function Homed() {
         heading={"Top's First Aids"}
       />
       <HorizontalCardProduct
-        category={"watches"}
-        heading={"Popular's Watches"}
+        category={"Pain Management"}
+        heading={"Pain Management"}
       />
 
-      <VerticalCardProduct category={"mobiles"} heading={"Mobiles"} />
+      <VerticalCardProduct category={"Cough & Cold"} heading={"Cough & Cold"} />
       <VerticalCardProduct category={"Mouse"} heading={"Mouse"} />
       <VerticalCardProduct category={"televisions"} heading={"Televisions"} />
       <VerticalCardProduct

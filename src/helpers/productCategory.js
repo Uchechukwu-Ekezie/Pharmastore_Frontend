@@ -1,17 +1,13 @@
-
 const productCategory = [
-    { id : 1, label : "First Aid", value : "firstaid"},
-    { id : 2, label : "Vitamins & Supplements", value : "vitamins&supplements"},
-    { id : 3, label : "Skin Care", value : "Skincare"},
-    { id : 4, label : "Diabetes Care", value : "diabetescare"},
-    { id : 5, label : "Mouse", value : "Mouse"},
-    { id : 6, label : "Printers", value : "printers"},
-    { id : 7, label : "Processor", value : "processor"},
-    { id : 8, label : "Refrigerator", value : "refrigerator"},
-    { id : 9, label : "Speakers", value : "speakers"},
-    { id : 10, label : "Trimmers", value : "trimmers"},
-    { id : 11, label : "Televisions", value : "televisions"},
-    { id : 12, label : "Watches", value : "watches"},
-]
+    { id: 1, label: "Pain Management", value: "Pain Management" },
+    { id: 2, label: "Cough & Cold", value: "Cough & Cold" },
+    { id: 3, label: "Vitamins & Supplements", value: "vitamins_supplements" },
+    { id: 4, label: "Chronic Diseases", value: "personal_care" },
+    { id: 5, label: "First Aid", value: "first_aid" },
+    { id: 6, label: "Family Planning", value: "health_wellness" },
+    { id: 7, label: "Mother & Child Care", value: "baby_child_care" },
+    { id: 13, label: "Skin Care", value: "skin_care" },
+  
+];
 
-export default productCategory
+export default productCategory;
