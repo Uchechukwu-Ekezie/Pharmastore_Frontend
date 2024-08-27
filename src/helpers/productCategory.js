@@ -7,6 +7,8 @@ const productCategory = [
     { id: 6, label: "Family Planning", value: "health_wellness" },
     { id: 7, label: "Mother & Child Care", value: "baby_child_care" },
     { id: 13, label: "Skin Care", value: "skin_care" },
+    { id: 8, label: "Malaria", value: "malaria" },
+
   
 ];
 

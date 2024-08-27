@@ -32,6 +32,10 @@ function Homed() {
         category={"skin_care"}
         heading={"Skin Care"}
       />
+       <VerticalCardProduct
+        category={"malaria"}
+        heading={"Malaria"}
+      />
     </div>
   );
 }

@@ -1,4 +1,4 @@
-const backendDomin = "https://pharmastore-backend.onrender.com"
+const backendDomin = process.env.REACT_APP_BACKEND_URL
 
 const SummaryApi = {
     signUP : {
@@ -76,6 +76,18 @@ const SummaryApi = {
     filterProduct : {
         url : `${backendDomin}/api/filter-product`,
         method : 'post'
+    },
+    payment : {
+        url : `${backendDomin}/api/checkout`,
+        method  : 'post'
+    },
+    getOrder : {
+        url : `${backendDomin}/api/order-list`,
+        method : 'get'
+    },
+    allOrder : {
+        url : `${backendDomin}/api/all-order`,
+        method : 'get'
     }
 }
 
