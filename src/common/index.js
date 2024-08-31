@@ -29,6 +29,18 @@ const SummaryApi = {
         url : `${backendDomin}/api/upload-product`,
         method : 'post'
     },
+    popularProduct : {
+        url : `${backendDomin}/api/popular`,
+        method : 'get'
+    },
+    markProductAsPopular : {
+        url : `${backendDomin}/api/popular/:productId`,
+        method : 'patch'
+    },
+    removePopularStatus : {
+        url : `${backendDomin}/api/unpopular/:productId`,
+        method : 'patch'
+    },
     allProduct : {
         url : `${backendDomin}/api/get-product`,
         method : 'get'

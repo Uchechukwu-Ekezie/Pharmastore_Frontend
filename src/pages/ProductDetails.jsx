@@ -103,7 +103,8 @@ const ProductDetails = () => {
           <div className='flex flex-col gap-4 h-96 lg:flex-row-reverse'>
 
               <div className='h-[300px] w-[300px] lg:h-96 lg:w-96 bg-slate-200 relative p-2'>
-                  <img src={activeImage} className='object-scale-down w-full h-full mix-blend-multiply' onMouseMove={handleZoomImage} onMouseLeave={handleLeaveImageZoom}/>
+                  <img src={activeImage} className='object-scale-down w-full h-full mix-blend-multiply' onMouseMove={handleZoomImage} onMouseLeave={handleLeaveImageZoom}
+                  alt=''/>
 
                     {/**product zoom */}
                     {

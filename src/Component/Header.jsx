@@ -31,7 +31,7 @@ function Headers() {
     if (data.success) {
       toast.success(data.message);
       dispatch(setUserDetails(null));
-      navigate("/");
+      navigate("/store");
     }
 
     if (data.error) {
@@ -44,12 +44,13 @@ function Headers() {
     setSearch(value);
 
     if (value) {
-      navigate(`/search?q=${value}`);
+      navigate(`/store/search?q=${value}`);
     } else {
-      navigate("/search");
+      navigate("/store/search");
     }
   };
 
+  
   return (
     <header className="fixed top-0 z-50 w-full bg-white shadow-xl">
       <div className="max-w-screen-xl px-4 mx-auto sm:px-6 lg:px-8">
@@ -109,7 +110,7 @@ function Headers() {
                   <nav>
                     {user?.role === ROLE.ADMIN && (
                       <Link
-                        to={"/admin-panel/all-products"}
+                        to={"/store/admin-panel/all-products"}
                         className="hidden p-2 whitespace-nowrap md:block hover:bg-slate-100"
                         onClick={() => setMenuDisplay((preve) => !preve)}
                       >
@@ -117,13 +118,13 @@ function Headers() {
                       </Link>
                     )}
                     <Link
-                      to={"/profile"}
-                      className="whitespace-nowrap hidden md:block hover:bg-slate-100 p-2"
+                      to={"/store/profile"}
+                      className="hidden p-2 whitespace-nowrap md:block hover:bg-slate-100"
                       onClick={() => setMenuDisplay((preve) => !preve)}
                     >
                       Profile
                     </Link>
-                    <Link to={'/order'} className='whitespace-nowrap hidden md:block hover:bg-slate-100 p-2' onClick={()=>setMenuDisplay(preve => !preve)}>Order</Link>
+                    <Link to={'/store/order'} className='hidden p-2 whitespace-nowrap md:block hover:bg-slate-100' onClick={()=>setMenuDisplay(preve => !preve)}>Order</Link>
                   </nav>
                 </div>
               )}
@@ -132,7 +133,7 @@ function Headers() {
             {user?._id && (
               <NavLink
                 className="relative text-2xl rounded-md bg-gray-100 px-5 py-2.5 font-medium text-teal-600"
-                to="/cart"
+                to="/store/cart"
               >
                 <span>
                   <FaShoppingCart />
@@ -155,7 +156,7 @@ function Headers() {
               ) : (
                 <NavLink
                   className="rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow"
-                  to="/login"
+                  to="/store/login"
                 >
                   Login
                 </NavLink>

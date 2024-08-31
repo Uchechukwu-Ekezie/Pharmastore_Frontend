@@ -40,7 +40,7 @@ function Login() {
 
     if (dataApi.success) {
       toast.success(dataApi.message);
-      navigate("/");
+      navigate("/store");
       fetchUserDetails();
       fetchUserAddToCart();
     }
