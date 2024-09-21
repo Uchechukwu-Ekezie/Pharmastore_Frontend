@@ -8,6 +8,9 @@ import Context from "./context";
 import { useDispatch } from "react-redux";
 import { setUserDetails } from "./store/userSlice";
 import Headers from "./Component/Header";
+import Hader from "./Component/Hader";
+import ScrollToTop from "./ScrollTop";
+import WhatsAppIcon from "./Component/Whatsapp";
 
 function App() {
   const dispatch = useDispatch();
@@ -74,6 +77,7 @@ function App() {
           fetchUserAddToCart,
         }}
       >
+        <ScrollToTop/>
         <ToastContainer position="top-center" />
         <Headers />
         <main className="min-h-[calc(100vh-120px)] pt-16">
@@ -81,6 +85,7 @@ function App() {
         </main>
         <Footer />
       </Context.Provider>
+      <WhatsAppIcon/>
     </div>
   );
 }

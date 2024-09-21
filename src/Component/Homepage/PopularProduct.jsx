@@ -40,7 +40,7 @@ const PopularProducts = () => {
   if (loading) return <p>Loading popular products...</p>;
 
   return (
-    <div div className="max-w-screen-xl px-4 py-12 mx-auto sm:px-6 lg:px-8">
+    <div div className="flex flex-col items-center max-w-screen-xl px-8 py-12 mx-auto sm:px-6 lg:px-8">
       <h2 className="mb-4 text-2xl font-bold">Popular Products</h2>
       {error ? (
         <p className="text-red-600">{error}</p>

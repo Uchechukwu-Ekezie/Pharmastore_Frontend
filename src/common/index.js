@@ -1,8 +1,15 @@
+import VendorSignup from "../pages/VendorSignup"
+
 const backendDomin = process.env.REACT_APP_BACKEND_URL
 
 const SummaryApi = {
     signUP : {
         url : `${backendDomin}/api/signup`,
+        method : "post"
+    },
+
+    VendorSignup : {
+        url : `${backendDomin}/api/vendorsignup`,
         method : "post"
     },
     signIn : {
@@ -17,8 +24,16 @@ const SummaryApi = {
         url : `${backendDomin}/api/userLogout`,
         method : 'get'
     },
+    updateUserProfile : {
+        url : `${backendDomin}/api/profile`,
+        method : "put"
+    },
     allUser : {
         url : `${backendDomin}/api/all-user`,
+        method : 'get'
+    },
+    allVendor : {
+        url : `${backendDomin}/api/all-vendor`,
         method : 'get'
     },
     updateUser : {

@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 
 function Hader() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
     <header className="fixed top-0 z-50 w-full bg-white shadow-xl">
       <div className="max-w-screen-xl px-4 mx-auto sm:px-6 lg:px-8">
@@ -24,18 +30,18 @@ function Hader() {
             </NavLink>
           </div>
 
-          <div className="hidden md:block">
+          {/* Desktop Navigation */}
+          <div className="items-center justify-between hidden md:flex md:gap-[230px] lg:gap-[490px]">
             <nav aria-label="Global">
               <ul className="flex items-center gap-6 text-base">
                 <li>
                   <NavLink
-                    className="font-semibold text-gray-500 transition hover:text-gray-500/75 hover:"
+                    className="font-semibold text-gray-500 transition hover:text-gray-500/75"
                     to="/"
                   >
                     Home
                   </NavLink>
                 </li>
-
                 <li>
                   <NavLink
                     className="font-semibold text-gray-500 transition hover:text-gray-500/75"
@@ -44,7 +50,6 @@ function Hader() {
                     Store
                   </NavLink>
                 </li>
-                
                 <li>
                   <NavLink
                     className="font-semibold text-gray-500 transition hover:text-gray-500/75"
@@ -53,52 +58,78 @@ function Hader() {
                     Contact
                   </NavLink>
                 </li>
-                
               </ul>
             </nav>
+
+            {/* Login Button */}
+            <NavLink
+              to="/store/login"
+              className="px-4 py-2 text-sm font-semibold text-white transition bg-teal-600 rounded hover:bg-teal-700"
+            >
+              Login
+            </NavLink>
           </div>
 
-          <div className="flex items-center gap-4">
-            <div className="sm:flex sm:gap-4">
-              <NavLink
-                className="rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white shadow"
-                to="store/login"
+          {/* Mobile Menu Button */}
+          <div className="flex items-center gap-4 md:hidden">
+            <button
+              className="p-2 text-gray-600 transition bg-gray-100 rounded hover:text-gray-600/75"
+              onClick={toggleMenu}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-5 h-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth="2"
               >
-                Login
-              </NavLink>
-              
-
-              <div className="hidden sm:flex">
-                <NavLink
-                  className="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600"
-                  to="store/sign-up"
-                >
-                  Register
-                </NavLink>
-              </div>
-            </div>
-
-            <div className="block md:hidden">
-              <button className="p-2 text-gray-600 transition bg-gray-100 rounded hover:text-gray-600/75">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="w-5 h-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M4 6h16M4 12h16m-7 6h7"
-                  />
-                </svg>
-              </button>
-            </div>
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M4 6h16M4 12h16m-7 6h7"
+                />
+              </svg>
+            </button>
           </div>
         </div>
       </div>
+
+      {/* Mobile Navigation Menu */}
+      {isMenuOpen && (
+        <div className="md:hidden">
+          <nav className="px-2 pb-4 space-y-2">
+            <NavLink
+              to="/"
+              className="block px-4 py-2 text-base font-semibold text-gray-700 rounded hover:bg-gray-100"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Home
+            </NavLink>
+            <NavLink
+              to="/store"
+              className="block px-4 py-2 text-base font-semibold text-gray-700 rounded hover:bg-gray-100"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Store
+            </NavLink>
+            <NavLink
+              to="/contact"
+              className="block px-4 py-2 text-base font-semibold text-gray-700 rounded hover:bg-gray-100"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Contact
+            </NavLink>
+            <NavLink
+              to="/login"
+              className="block px-4 py-2 text-base font-semibold text-teal-600 bg-gray-100 rounded"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Login
+            </NavLink>
+          </nav>
+        </div>
+      )}
     </header>
   );
 }

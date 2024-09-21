@@ -8,6 +8,8 @@ const productCategory = [
     { id: 7, label: "Mother & Child Care", value: "baby_child_care" },
     { id: 8, label: "Skin Care", value: "skin_care" },
     { id: 9, label: "Malaria", value: "malaria" },
+    { id: 9, label: "Prescription Medication", value: "pres_med" },
+
 
   
 ];

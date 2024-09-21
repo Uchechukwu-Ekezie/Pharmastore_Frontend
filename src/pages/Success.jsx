@@ -12,7 +12,7 @@ const Success = () => {
         alt=''
       />
       <p className='text-xl font-bold text-green-600'>Payment Successfully</p>
-      <Link to={"/order"} className='p-2 px-3 mt-5 font-semibold text-green-600 border-2 border-green-600 rounded hover:bg-green-600 hover:text-white'>See Order</Link>
+      <Link to={"/store/order"} className='p-2 px-3 mt-5 font-semibold text-green-600 border-2 border-green-600 rounded hover:bg-green-600 hover:text-white'>See Order</Link>
     </div>
   )
 }

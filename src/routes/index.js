@@ -18,6 +18,9 @@ import LandingPage from "../pages/LandingPage";
 import Contact from "../pages/Contact";
 import CategoryProduct from "../pages/CategoryProduct";
 import ErrorBoundary from "../Component/ErrorBoundary";
+import UserProfile from "../pages/UserProfile";
+import VendorSignup from "../pages/VendorSignup";
+import AllVendor from "../pages/AllVendor";
 
 const router = createBrowserRouter([
   {
@@ -52,6 +55,17 @@ const router = createBrowserRouter([
       {
         path: "sign-up", // Matches /store/sign-up
         element: <Signup />,
+        errorElement: <ErrorBoundary />,
+      },
+
+      {
+        path: "vendorsign-up", // Matches /store/sign-up
+        element: <VendorSignup/>,
+        errorElement: <ErrorBoundary />,
+      },
+      {
+        path: "profile", // Matches /store/sign-up
+        element: <UserProfile/>,
         errorElement: <ErrorBoundary />,
       },
       {
@@ -97,6 +111,11 @@ const router = createBrowserRouter([
           {
             path: "all-users", // Matches /store/admin-panel/all-users
             element: <AllUsers />,
+            errorElement: <ErrorBoundary />,
+          },
+          {
+            path: "all-vendor", // Matches /store/admin-panel/all-users
+            element: <AllVendor/>,
             errorElement: <ErrorBoundary />,
           },
           {

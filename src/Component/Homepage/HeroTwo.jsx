@@ -1,19 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FaShippingFast, FaLock, FaGift, FaHeadset } from "react-icons/fa";
+import {  FaLock, FaGift, FaHeadset } from "react-icons/fa";
 
 function HeroTwo() {
   return (
     <div className="max-w-screen-xl px-4 py-8 mx-auto sm:px-6 lg:px-8">
       {/* Top Section */}
-      <div className="grid grid-cols-2 gap-4 mb-6 md:grid-cols-4">
-        <div className="flex items-center justify-center p-4 bg-white rounded shadow">
-          <FaShippingFast className="w-6 h-6 mr-2 text-teal-600" />
-          <div>
-            <h4 className="font-semibold">Free Shipping</h4>
-            <p className="text-sm text-gray-500">Order Over $50000</p>
-          </div>
-        </div>
+      <div className="grid grid-cols-2 gap-4 mb-6 md:grid-cols-3">
+       
         <div className="flex items-center justify-center p-4 bg-white rounded shadow">
           <FaLock className="w-6 h-6 mr-2 text-teal-600" />
           <div>
@@ -81,7 +75,7 @@ function HeroTwo() {
             Discover a wide selection of first aid supplies for emergency and routine care, perfect for home, travel, or workplace.
           </p>
           <Link
-            to="/store"
+            to="/store/product-category?category=first_aid"
             className="inline-block px-4 py-2 mt-4 text-sm font-semibold text-white bg-teal-600 rounded hover:bg-teal-700"
           >
             Shop Now

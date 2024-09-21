@@ -91,7 +91,7 @@ const ProductDetails = () => {
   const handleBuyProduct = async(e,id)=>{
     await addToCart(e,id)
     fetchUserAddToCart()
-    navigate("/cart")
+    navigate("/store/cart")
 
   }
 
@@ -192,13 +192,7 @@ const ProductDetails = () => {
                 <h2 className='text-2xl font-medium lg:text-4xl'>{data?.productName}</h2>
                 <p className='capitalize text-slate-400'>{data?.category}</p>
 
-                <div className='flex items-center gap-1 text-teal-600'>
-                    <FaStar/>
-                    <FaStar/>
-                    <FaStar/>
-                    <FaStar/>
-                    <FaStarHalf/>
-                </div>
+           
 
                 <div className='flex items-center gap-2 my-1 text-2xl font-medium lg:text-3xl'>
                   <p className='text-teal-600'>{displayINRCurrency(data.sellingPrice)}</p>

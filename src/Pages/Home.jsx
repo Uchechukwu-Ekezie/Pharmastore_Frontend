@@ -20,6 +20,7 @@ function Homed() {
         heading={"Pain Management"}
       />
 
+      <VerticalCardProduct category={"pres_med"} heading={"Prescription Medication"} />
       <VerticalCardProduct category={"Cough & Cold"} heading={"Cough & Cold"} />
       <VerticalCardProduct category={"vitamins_supplements"} heading={"Vitamins & Supplements"} />
       <VerticalCardProduct category={"personal_care"} heading={"Chronic Diseases"} />
