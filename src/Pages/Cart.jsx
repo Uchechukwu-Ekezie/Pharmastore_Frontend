@@ -328,13 +328,13 @@ const Cart = () => {
         {/* Modal for Confirmation */}
         {showModal && (
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-            <div className="bg-white p-5 rounded w-96">
-              <h2 className="text-xl font-bold text-center mb-4">
+            <div className="p-5 bg-white rounded w-96">
+              <h2 className="mb-4 text-xl font-bold text-center">
                 Confirm Purchase
               </h2>
               {isPrescriptionRequired && (
                 <div className="mb-4">
-                  <p className="text-sm text-gray-700 mb-2">
+                  <p className="mb-2 text-sm text-gray-700">
                     We noticed you selected a drug from the prescription
                     medication category. Please upload a doctor's prescription
                     or chat with a doctor.
@@ -362,13 +362,13 @@ const Cart = () => {
               <>
                 {isFirstAidCategorySelected && (
                   <div className="mb-4">
-                    <h3 className="text-lg font-semibold mb-2">
+                    <h3 className="mb-2 text-lg font-semibold">
                       First Aid Measures
                     </h3>
                     <p className="text-sm text-gray-700">
                       For first aid products, please ensure you follow these
                       basic measures:
-                      <ul className="list-disc ml-5">
+                      <ul className="ml-5 list-disc">
                         <li>
                           Clean the affected area with mild soap and water.
                         </li>
@@ -412,14 +412,14 @@ const Cart = () => {
         {/* Chat Form Modal */}
         {showChatForm && (
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-            <div className="bg-white p-5 rounded w-1/2 max-w-4xl">
-              <h2 className="text-xl font-bold text-center mb-4">
+            <div className="w-1/2 max-w-4xl p-5 bg-white rounded">
+              <h2 className="mb-4 text-xl font-bold text-center">
                 Chat with a Doctor
               </h2>
               <div className="flex flex-col gap-6">
                 {/* Question 1 */}
                 <div className="mb-4">
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block mb-2 text-sm font-medium text-gray-700">
                     1. What is the name of the medication you are currently
                     taking?
                   </label>
@@ -439,7 +439,7 @@ const Cart = () => {
 
                 {/* Question 2 */}
                 <div className="mb-4">
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block mb-2 text-sm font-medium text-gray-700">
                     2. Have you experienced any side effects from this
                     medication?
                   </label>
@@ -459,7 +459,7 @@ const Cart = () => {
 
                 {/* Question 3 */}
                 <div className="mb-4">
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block mb-2 text-sm font-medium text-gray-700">
                     3. Are you taking any other medications or supplements?
                   </label>
                   <textarea
@@ -478,7 +478,7 @@ const Cart = () => {
 
                 {/* Question 4 */}
                 <div className="mb-4">
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block mb-2 text-sm font-medium text-gray-700">
                     4. Do you have any allergies or conditions that the doctor
                     should be aware of?
                   </label>
@@ -518,14 +518,14 @@ const Cart = () => {
          {/* Chat Form Modal: Show only if Amitriptyline is found */}
          {isAmitriptyline && showChatForm && (
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-            <div className="bg-white p-5 rounded w-1/2 max-w-4xl">
-              <h2 className="text-xl font-bold text-center mb-4">
+            <div className="w-1/2 max-w-4xl p-5 bg-white rounded">
+              <h2 className="mb-4 text-xl font-bold text-center">
                 Chat with a Doctor about Amitriptyline
               </h2>
               <div className="flex flex-col gap-6">
                 {/* Question 1 */}
                 <div className="mb-4">
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block mb-2 text-sm font-medium text-gray-700">
                     1. What symptoms have you been having?
                   </label>
                   <textarea
@@ -539,7 +539,7 @@ const Cart = () => {
 
                 {/* Question 2 */}
                 <div className="mb-4">
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block mb-2 text-sm font-medium text-gray-700">
                     2. If Insomnia is part of the symptoms, have you had it for about 3 months?
                   </label>
                   <textarea
@@ -553,7 +553,7 @@ const Cart = () => {
 
                 {/* Question 3 */}
                 <div className="mb-4">
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block mb-2 text-sm font-medium text-gray-700">
                     3. Do you have fast heartbeats or palpitations?
                   </label>
                   <textarea
@@ -567,7 +567,7 @@ const Cart = () => {
 
                 {/* Question 4 */}
                 <div className="mb-4">
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block mb-2 text-sm font-medium text-gray-700">
                     4. Are you always anxious? If yes, where does it come from? Did you lose a relative or a loved one?
                   </label>
                   <textarea

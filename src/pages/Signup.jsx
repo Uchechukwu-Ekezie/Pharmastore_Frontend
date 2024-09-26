@@ -54,7 +54,7 @@ function Signup() {
 
         if(dataApi.success){
           toast.success(dataApi.message)
-          navigate("/login")
+          navigate("/store/login")
         }
 
         if(dataApi.error){
@@ -167,7 +167,7 @@ function Signup() {
               Have an account?
               <Link
                 className="text-red-500 hover:underline hover:text-red-700"
-                to="/login"
+                to="/store/login"
               >
                 Login
               </Link>
